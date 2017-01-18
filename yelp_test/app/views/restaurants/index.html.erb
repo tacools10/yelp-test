@@ -1,0 +1,20 @@
+<h1 class="text-center">Restaurants</h1>
+
+<%= link_to "Add a new restaurant", new_restaurant_path, class: "btn btn-primary" %>
+
+<% @restaurants.each do |restaurant| %>
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 ">
+        <li style="list-style: none"> <%= restaurant.name %> </li>
+        <li style="list-style: none"> <%= restaurant.address %> </li>
+        <li style="list-style: none"> <%= restaurant.category %> </li>
+        <li style="list-style: none"> <%= restaurant.phone_number%> </li>
+
+        <%= link_to "See this restaurant", restaurant_path(restaurant), class: "btn btn-primary" %>
+        <%= link_to "Delete this restaurant", restaurant_path(restaurant), class: "btn btn-primary", method: :delete %>
+
+      </div>
+    </div>
+  </div>
+<% end %>

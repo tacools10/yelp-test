@@ -1,0 +1,44 @@
+<h2 class="text-center">Restaurant Info </h2>
+
+<div class="container text-center">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 ">
+      <li style="list-style: none"> <%= @restaurant.name %> </li>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <li style="list-style: none"> <%= @restaurant.category %> </li>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <li style="list-style: none"> <%= @restaurant.address %> </li>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <li style="list-style: none"> <%= @restaurant.phone_number %> </li>
+    </div>
+  </div>
+</div>
+
+<%= link_to "All Restaurants", restaurants_path, class: "btn btn-primary" %>
+<%= link_to "Add a new review", new_restaurant_review_path(@restaurant), class: "btn btn-primary" %>
+<%= link_to "Delete this restaurant", restaurant_path(@restaurant), class: "btn btn-primary", method: :delete %>
+
+
+
+<h3 class="text-center">Reviews</h2>
+<% @restaurant.reviews.each do |review| %>
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 ">
+        <li style="list-style: none"> <%= review.content %> </li>
+        <li style="list-style: none"> <%= review.rating %> </li>
+        <%= link_to "Edit this review", edit_restaurant_review_path(id: review.id, restaurant_id: review.restaurant_id), class: "btn btn-primary" %>
+
+      </div>
+    </div>
+  </div>
+<% end %>

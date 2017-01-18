@@ -4,7 +4,6 @@ class CreateRestaurants < ActiveRecord::Migration
       t.string :name
       t.string :phone_number
       t.string :category
-
       t.timestamps null: false
     end
   end
